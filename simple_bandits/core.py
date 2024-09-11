@@ -1,8 +1,3 @@
-# Convenience functions
-def ind_max(x):
-  m = max(x)
-  return x.index(m)
-
 # Need access to random numbers
 import random
 

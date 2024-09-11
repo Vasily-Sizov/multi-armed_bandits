@@ -1,1 +1,3 @@
 # Multi armed bandits
+
+- EpsilonGreedy

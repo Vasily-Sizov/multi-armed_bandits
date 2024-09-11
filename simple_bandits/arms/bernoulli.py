@@ -10,3 +10,10 @@ class BernoulliArm:
             return 0.0
         else:
             return 1.0
+
+
+if __name__ == "__main__":
+
+    nn = BernoulliArm(0.3)
+    value = nn.draw()
+    print(value)
