@@ -1,0 +1,2 @@
+from simple_bandits.test_algorithms.test_epsilon_greedy_standard import test_eg_standard
+from simple_bandits.test_algorithms.test_epsilon_greedy_annealing import test_eg_annealing

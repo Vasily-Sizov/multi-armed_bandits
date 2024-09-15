@@ -6,7 +6,7 @@ from simple_bandits.testing_framework.tests import test_algorithm
 from simple_bandits.utils.utils import ind_max
 
 
-def test_eg_standard(filename: str = 'eg_annealing_results.tsv'):
+def test_eg_annealing(filename: str = 'eg_annealing_results.tsv'):
     random.seed(1)
     means = [0.1, 0.1, 0.1, 0.1, 0.9]
     n_arms = len(means)
