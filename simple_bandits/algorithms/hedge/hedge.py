@@ -1,6 +1,7 @@
 import math
 import random
 from simple_bandits.algorithms.base_algo import BaseAlgo
+from simple_bandits.utils.utils import categorical_draw
 
 
 class Hedge(BaseAlgo):
@@ -8,18 +9,6 @@ class Hedge(BaseAlgo):
         self.temperature = temperature
         self.counts = counts
         self.values = values
-
-    @staticmethod
-    def categorical_draw(probs):
-        z = random.random()
-        cum_prob = 0.0
-        for i in range(len(probs)):
-            prob = probs[i]
-            cum_prob += prob
-            if cum_prob > z:
-                return i
-
-        return len(probs) - 1
 
     def initialize(self, n_arms: int) -> None:
         """## Инициализация
@@ -38,7 +27,7 @@ class Hedge(BaseAlgo):
         """
         z = sum([math.exp(v / self.temperature) for v in self.values])
         probs = [math.exp(v / self.temperature) / z for v in self.values]
-        return Hedge.categorical_draw(probs)
+        return categorical_draw(probs)
 
     def update(self, chosen_arm: int, reward: float) -> None:
         """## Обновление бандита

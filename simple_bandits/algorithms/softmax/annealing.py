@@ -1,24 +1,13 @@
 import math
 import random
 from simple_bandits.algorithms.base_algo import BaseAlgo
+from simple_bandits.utils.utils import categorical_draw
 
 
 class AnnealingSoftmax(BaseAlgo):
     def __init__(self, counts, values):
         self.counts = counts
         self.values = values
-
-    @staticmethod
-    def categorical_draw(probs):
-        z = random.random()
-        cum_prob = 0.0
-        for i in range(len(probs)):
-            prob = probs[i]
-            cum_prob += prob
-            if cum_prob > z:
-                return i
-
-        return len(probs) - 1
 
     def initialize(self, n_arms: int) -> None:
         """## Инициализация
@@ -40,7 +29,7 @@ class AnnealingSoftmax(BaseAlgo):
 
         z = sum([math.exp(v / temperature) for v in self.values])
         probs = [math.exp(v / temperature) / z for v in self.values]
-        return AnnealingSoftmax.categorical_draw(probs)
+        return categorical_draw(probs)
 
     def update(self, chosen_arm: int, reward: float) -> None:
         """## Обновление бандита

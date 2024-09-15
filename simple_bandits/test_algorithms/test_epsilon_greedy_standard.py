@@ -1,5 +1,9 @@
 import random
-from standard import EpsilonGreedy
+from simple_bandits.algorithms.epsilon_greedy.standard import EpsilonGreedy
+from simple_bandits.arms.bernoulli import BernoulliArm
+
+from simple_bandits.algorithms.epsilon_greedy import BaseAlgo
+
 
 random.seed(1)
 means = [0.1, 0.1, 0.1, 0.1, 0.9]

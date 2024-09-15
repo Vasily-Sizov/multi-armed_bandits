@@ -1,5 +1,6 @@
 import random
 from simple_bandits.algorithms.base_algo import BaseAlgo
+from simple_bandits.utils.utils import ind_max
 
 
 class EpsilonGreedy(BaseAlgo):
@@ -26,11 +27,6 @@ class EpsilonGreedy(BaseAlgo):
         self.counts = [0 for col in range(n_arms)]
         self.values = [0.0 for col in range(n_arms)]
 
-    @staticmethod
-    def ind_max(x: list) -> int:
-        m = max(x)
-        return x.index(m)
-
     def select_arm(self) -> int:
         """## Выбор руки
 
@@ -38,7 +34,7 @@ class EpsilonGreedy(BaseAlgo):
             - `int`: Возвращает руку
         """
         if random.random() > self.epsilon:
-            return EpsilonGreedy.ind_max(self.values)
+            return ind_max(self.values)
         else:
             return random.randrange(len(self.values))
 

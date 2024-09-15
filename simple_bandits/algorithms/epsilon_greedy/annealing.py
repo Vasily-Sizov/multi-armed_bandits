@@ -1,6 +1,7 @@
 import random
 import math
 from simple_bandits.algorithms.base_algo import BaseAlgo
+from simple_bandits.utils.utils import ind_max
 
 
 class AnnealingEpsilonGreedy(BaseAlgo):
@@ -15,11 +16,6 @@ class AnnealingEpsilonGreedy(BaseAlgo):
         """
         self.counts = counts
         self.values = values
-
-    @staticmethod
-    def ind_max(x: list) -> int:
-        m = max(x)
-        return x.index(m)
 
     def initialize(self, n_arms: int) -> None:
         """## Инициализация
@@ -40,7 +36,7 @@ class AnnealingEpsilonGreedy(BaseAlgo):
         epsilon = 1 / math.log(t + 0.0000001)
 
         if random.random() > epsilon:
-            return AnnealingEpsilonGreedy.ind_max(self.values)
+            return ind_max(self.values)
         else:
             return random.randrange(len(self.values))
 

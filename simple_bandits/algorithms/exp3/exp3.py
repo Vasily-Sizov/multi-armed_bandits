@@ -1,23 +1,13 @@
 import random
 import math
 from simple_bandits.algorithms.base_algo import BaseAlgo
+from simple_bandits.utils.utils import categorical_draw
 
 
 class Exp3(BaseAlgo):
     def __init__(self, gamma, weights):
         self.gamma = gamma
         self.weights = weights
-
-    @staticmethod
-    def categorical_draw(probs):
-        z = random.random()
-        cum_prob = 0.0
-        for i in range(len(probs)):
-            prob = probs[i]
-            cum_prob += prob
-            if cum_prob > z:
-                return i
-        return len(probs) - 1
 
     def initialize(self, n_arms: int) -> None:
         """## Инициализация
@@ -39,7 +29,7 @@ class Exp3(BaseAlgo):
         for arm in range(n_arms):
             probs[arm] = (1 - self.gamma) * (self.weights[arm] / total_weight)
             probs[arm] = probs[arm] + (self.gamma) * (1.0 / float(n_arms))
-        return Exp3.categorical_draw(probs)
+        return categorical_draw(probs)
 
     def update(self, chosen_arm: int, reward: float) -> None:
         """## Обновление бандита
