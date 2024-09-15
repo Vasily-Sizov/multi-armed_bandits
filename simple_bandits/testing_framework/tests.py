@@ -1,10 +1,11 @@
 from simple_bandits.algorithms.base_algo import BaseAlgo
 from simple_bandits.arms.base_arm import BaseArm
+from collections.abc import Sequence
 
 
 def test_algorithm(
         algo: BaseAlgo,
-        arms: list[BaseArm],
+        arms: Sequence[BaseArm],
         num_sims: int,
         horizon: int) -> tuple[list[int], list[int], list[int], list[float], list[float]]:
     """## Тестовый фреймворк (модель среды)
