@@ -1,13 +1,29 @@
 from algorithms.base_algo import BaseAlgo
+from arms.base_arm import BaseArm
 
 
-def test_algorithm(algo: BaseAlgo, arms, num_sims: int, horizon: int):
+def test_algorithm(
+        algo: BaseAlgo,
+        arms: list[BaseArm],
+        num_sims: int,
+        horizon: int) -> tuple[list[int], list[int], list[int], list[float], list[float]]:
+    """## Тестовый фреймворк (модель среды)
 
-    chosen_arms = [0.0 for i in range(num_sims * horizon)]
+    ### Args:
+        - `algo (BaseAlgo)`: Алгоритм бандита
+        - `arms (list[BaseArm])`: Список рук
+        - `num_sims (int)`: Количество симуляций
+        - `horizon (int)`: Количество итераций бандита
+
+    ### Returns:
+        - `_type_`: _description_
+    """
+
+    chosen_arms = [0 for i in range(num_sims * horizon)]
     rewards = [0.0 for i in range(num_sims * horizon)]
     cumulative_rewards = [0.0 for i in range(num_sims * horizon)]
-    sim_nums = [0.0 for i in range(num_sims * horizon)]
-    times = [0.0 for i in range(num_sims * horizon)]
+    sim_nums = [0 for i in range(num_sims * horizon)]
+    times = [0 for i in range(num_sims * horizon)]
 
     for sim in range(num_sims):
         sim = sim + 1
@@ -32,4 +48,4 @@ def test_algorithm(algo: BaseAlgo, arms, num_sims: int, horizon: int):
 
             algo.update(chosen_arm, reward)
 
-    return [sim_nums, times, chosen_arms, rewards, cumulative_rewards]
+    return (sim_nums, times, chosen_arms, rewards, cumulative_rewards)

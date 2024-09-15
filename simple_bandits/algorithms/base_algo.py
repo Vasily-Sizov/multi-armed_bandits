@@ -12,5 +12,5 @@ class BaseAlgo(ABC):
         pass
 
     @abstractmethod
-    def update(self, chosen_arm: int, reward: int) -> None:
+    def update(self, chosen_arm: int, reward: float) -> None:
         pass
