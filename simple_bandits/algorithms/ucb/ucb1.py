@@ -2,15 +2,15 @@ import math
 from algorithms.base_algo import BaseAlgo
 
 
-def ind_max(x):
-    m = max(x)
-    return x.index(m)
-
-
 class UCB1(BaseAlgo):
     def __init__(self, counts, values) -> None:
         self.counts = counts
         self.values = values
+
+    @staticmethod
+    def ind_max(x):
+        m = max(x)
+        return x.index(m)
 
     def initialize(self, n_arms: int) -> None:
         """## Инициализация
@@ -37,7 +37,7 @@ class UCB1(BaseAlgo):
         for arm in range(n_arms):
             bonus = math.sqrt((2 * math.log(total_counts)) / float(self.counts[arm]))
             ucb_values[arm] = self.values[arm] + bonus
-        return ind_max(ucb_values)
+        return UCB1.ind_max(ucb_values)
 
     def update(self, chosen_arm: int, reward: int) -> None:
         """## Обновление бандита

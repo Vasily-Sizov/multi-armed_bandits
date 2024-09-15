@@ -2,11 +2,6 @@ import math
 from algorithms.base_algo import BaseAlgo
 
 
-def ind_max(x):
-    m = max(x)
-    return x.index(m)
-
-
 class UCB2(BaseAlgo):
     def __init__(self, alpha, counts, values):
         """
@@ -18,6 +13,11 @@ class UCB2(BaseAlgo):
         self.values = values
         self.__current_arm = 0
         self.__next_update = 0
+
+    @staticmethod
+    def ind_max(x):
+        m = max(x)
+        return x.index(m)
 
     def initialize(self, n_arms: int) -> None:
         """## Инициализация
@@ -72,7 +72,7 @@ class UCB2(BaseAlgo):
             bonus = self.__bonus(total_counts, self.r[arm])
             ucb_values[arm] = self.values[arm] + bonus
 
-        chosen_arm = ind_max(ucb_values)
+        chosen_arm = UCB2.ind_max(ucb_values)
         self.__set_arm(chosen_arm)
         return chosen_arm
 
