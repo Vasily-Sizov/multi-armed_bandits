@@ -13,7 +13,7 @@ def test_algorithm(
         - `algo (BaseAlgo)`: Алгоритм бандита
         - `arms (list[BaseArm])`: Список рук
         - `num_sims (int)`: Количество симуляций
-        - `horizon (int)`: Количество итераций бандита
+        - `horizon (int)`: Горизонт - количество игр бандитом
 
     ### Returns:
         - `_type_`: _description_
