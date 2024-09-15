@@ -5,7 +5,7 @@ import math
 class AnnealingEpsilonGreedy():
     """## Эпсилон-жадный алгоритм с отжигом"""
 
-    def __init__(self, counts: list, values: list):
+    def __init__(self, counts: list[int], values: list[float]):
         """## Конструктор
 
         ### Args:

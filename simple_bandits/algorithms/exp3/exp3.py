@@ -40,7 +40,13 @@ class Exp3():
             probs[arm] = probs[arm] + (self.gamma) * (1.0 / float(n_arms))
         return Exp3.categorical_draw(probs)
 
-    def update(self, chosen_arm, reward):
+    def update(self, chosen_arm: int, reward: int) -> None:
+        """## _summary_
+
+        ### Args:
+            - `chosen_arm (int)`: _description_
+            - `reward (int)`: _description_
+        """
         n_arms = len(self.weights)
         total_weight = sum(self.weights)
         probs = [0.0 for i in range(n_arms)]
