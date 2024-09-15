@@ -1,4 +1,7 @@
-def test_algorithm(algo, arms, num_sims: int, horizon: int):
+from algorithms.base_algo import BaseAlgo
+
+
+def test_algorithm(algo: BaseAlgo, arms, num_sims: int, horizon: int):
 
     chosen_arms = [0.0 for i in range(num_sims * horizon)]
     rewards = [0.0 for i in range(num_sims * horizon)]

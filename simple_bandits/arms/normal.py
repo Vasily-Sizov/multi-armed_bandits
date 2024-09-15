@@ -1,7 +1,8 @@
 import random
+from arms.base_arm import BaseArm
 
 
-class NormalArm():
+class NormalArm(BaseArm):
     def __init__(self, mu: float, sigma: float):
         self.mu = mu
         self.sigma = sigma

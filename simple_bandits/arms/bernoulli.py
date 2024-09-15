@@ -1,7 +1,8 @@
 import random
+from arms.base_arm import BaseArm
 
 
-class BernoulliArm:
+class BernoulliArm(BaseArm):
     def __init__(self, p: float):
         self.p = p
 

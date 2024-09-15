@@ -1,4 +1,7 @@
-class AdversarialArm():
+from arms.base_arm import BaseArm
+
+
+class AdversarialArm(BaseArm):
     def __init__(self, t: float, active_start: float, active_end: float):
         self.t = t
         self.active_start = active_start
