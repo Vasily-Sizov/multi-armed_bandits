@@ -1,8 +1,9 @@
 import random
 import math
+from algorithms.base_algo import BaseAlgo
 
 
-class Exp3():
+class Exp3(BaseAlgo):
     def __init__(self, gamma, weights):
         self.gamma = gamma
         self.weights = weights

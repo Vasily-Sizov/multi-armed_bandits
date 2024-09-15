@@ -1,4 +1,5 @@
 import math
+from algorithms.base_algo import BaseAlgo
 
 
 def ind_max(x):
@@ -6,7 +7,7 @@ def ind_max(x):
     return x.index(m)
 
 
-class UCB2(object):
+class UCB2(BaseAlgo):
     def __init__(self, alpha, counts, values):
         """
         UCB2 algorithm. Implementation of the slides at:
@@ -17,7 +18,6 @@ class UCB2(object):
         self.values = values
         self.__current_arm = 0
         self.__next_update = 0
-        return
 
     def initialize(self, n_arms: int) -> None:
         """## Инициализация

@@ -1,8 +1,9 @@
 import random
 import math
+from algorithms.base_algo import BaseAlgo
 
 
-class AnnealingEpsilonGreedy():
+class AnnealingEpsilonGreedy(BaseAlgo):
     """## Эпсилон-жадный алгоритм с отжигом"""
 
     def __init__(self, counts: list[int], values: list[float]):

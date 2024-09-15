@@ -1,4 +1,5 @@
 import math
+from algorithms.base_algo import BaseAlgo
 
 
 def ind_max(x):
@@ -6,7 +7,7 @@ def ind_max(x):
     return x.index(m)
 
 
-class UCB1():
+class UCB1(BaseAlgo):
     def __init__(self, counts, values) -> None:
         self.counts = counts
         self.values = values

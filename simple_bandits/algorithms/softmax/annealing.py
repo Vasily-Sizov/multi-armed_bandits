@@ -1,5 +1,6 @@
 import math
 import random
+from algorithms.base_algo import BaseAlgo
 
 
 def categorical_draw(probs):
@@ -14,7 +15,7 @@ def categorical_draw(probs):
     return len(probs) - 1
 
 
-class AnnealingSoftmax:
+class AnnealingSoftmax(BaseAlgo):
     def __init__(self, counts, values):
         self.counts = counts
         self.values = values

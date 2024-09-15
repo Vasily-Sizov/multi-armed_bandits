@@ -1,8 +1,9 @@
 import math
 import random
+from algorithms.base_algo import BaseAlgo
 
 
-class Softmax:
+class Softmax(BaseAlgo):
     def __init__(self, temperature, counts, values):
         self.temperature = temperature
         self.counts = counts

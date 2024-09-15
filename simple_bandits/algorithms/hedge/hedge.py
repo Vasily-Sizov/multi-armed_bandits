@@ -1,8 +1,9 @@
 import math
 import random
+from algorithms.base_algo import BaseAlgo
 
 
-class Hedge:
+class Hedge(BaseAlgo):
     def __init__(self, temperature, counts, values):
         self.temperature = temperature
         self.counts = counts

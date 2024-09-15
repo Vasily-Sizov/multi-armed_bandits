@@ -1,7 +1,8 @@
 import random
+from algorithms.base_algo import BaseAlgo
 
 
-class EpsilonGreedy:
+class EpsilonGreedy(BaseAlgo):
     """## Эпсилон-жадный алгоритм"""
 
     def __init__(self, epsilon: float, counts: list[int], values: list[float]):
