@@ -1,4 +1,4 @@
-from arms.base_arm import BaseArm
+from simple_bandits.arms.base_arm import BaseArm
 
 
 class AdversarialArm(BaseArm):

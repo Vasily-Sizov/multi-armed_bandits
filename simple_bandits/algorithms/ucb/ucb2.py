@@ -1,5 +1,5 @@
 import math
-from algorithms.base_algo import BaseAlgo
+from simple_bandits.algorithms.base_algo import BaseAlgo
 
 
 class UCB2(BaseAlgo):
@@ -76,7 +76,7 @@ class UCB2(BaseAlgo):
         self.__set_arm(chosen_arm)
         return chosen_arm
 
-    def update(self, chosen_arm: int, reward: int) -> None:
+    def update(self, chosen_arm: int, reward: float) -> None:
         """## Обновление бандита
 
         ### Args:

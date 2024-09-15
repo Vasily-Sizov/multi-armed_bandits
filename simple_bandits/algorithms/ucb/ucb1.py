@@ -1,5 +1,5 @@
 import math
-from algorithms.base_algo import BaseAlgo
+from simple_bandits.algorithms.base_algo import BaseAlgo
 
 
 class UCB1(BaseAlgo):
@@ -39,7 +39,7 @@ class UCB1(BaseAlgo):
             ucb_values[arm] = self.values[arm] + bonus
         return UCB1.ind_max(ucb_values)
 
-    def update(self, chosen_arm: int, reward: int) -> None:
+    def update(self, chosen_arm: int, reward: float) -> None:
         """## Обновление бандита
 
         ### Args:

@@ -1,0 +1,1 @@
+from simple_bandits.testing_framework.tests import test_algorithm

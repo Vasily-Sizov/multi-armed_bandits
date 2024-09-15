@@ -1,6 +1,6 @@
 import random
 import math
-from algorithms.base_algo import BaseAlgo
+from simple_bandits.algorithms.base_algo import BaseAlgo
 
 
 class AnnealingEpsilonGreedy(BaseAlgo):
@@ -44,7 +44,7 @@ class AnnealingEpsilonGreedy(BaseAlgo):
         else:
             return random.randrange(len(self.values))
 
-    def update(self, chosen_arm: int, reward: int) -> None:
+    def update(self, chosen_arm: int, reward: float) -> None:
         """## Обновление бандита
 
         ### Args:

@@ -1,5 +1,5 @@
-from algorithms.base_algo import BaseAlgo
-from arms.base_arm import BaseArm
+from simple_bandits.algorithms.base_algo import BaseAlgo
+from simple_bandits.arms.base_arm import BaseArm
 
 
 def test_algorithm(

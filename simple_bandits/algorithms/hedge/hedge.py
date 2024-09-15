@@ -1,6 +1,6 @@
 import math
 import random
-from algorithms.base_algo import BaseAlgo
+from simple_bandits.algorithms.base_algo import BaseAlgo
 
 
 class Hedge(BaseAlgo):
@@ -40,7 +40,7 @@ class Hedge(BaseAlgo):
         probs = [math.exp(v / self.temperature) / z for v in self.values]
         return Hedge.categorical_draw(probs)
 
-    def update(self, chosen_arm: int, reward: int) -> None:
+    def update(self, chosen_arm: int, reward: float) -> None:
         """## Обновление бандита
 
         ### Args:

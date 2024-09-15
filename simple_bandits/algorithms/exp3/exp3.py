@@ -1,6 +1,6 @@
 import random
 import math
-from algorithms.base_algo import BaseAlgo
+from simple_bandits.algorithms.base_algo import BaseAlgo
 
 
 class Exp3(BaseAlgo):
@@ -41,8 +41,8 @@ class Exp3(BaseAlgo):
             probs[arm] = probs[arm] + (self.gamma) * (1.0 / float(n_arms))
         return Exp3.categorical_draw(probs)
 
-    def update(self, chosen_arm: int, reward: int) -> None:
-        """## _summary_
+    def update(self, chosen_arm: int, reward: float) -> None:
+        """## Обновление бандита
 
         ### Args:
             - `chosen_arm (int)`: _description_

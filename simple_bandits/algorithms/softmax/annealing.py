@@ -1,6 +1,6 @@
 import math
 import random
-from algorithms.base_algo import BaseAlgo
+from simple_bandits.algorithms.base_algo import BaseAlgo
 
 
 class AnnealingSoftmax(BaseAlgo):
@@ -42,7 +42,7 @@ class AnnealingSoftmax(BaseAlgo):
         probs = [math.exp(v / temperature) / z for v in self.values]
         return AnnealingSoftmax.categorical_draw(probs)
 
-    def update(self, chosen_arm: int, reward: int) -> None:
+    def update(self, chosen_arm: int, reward: float) -> None:
         """## Обновление бандита
 
         ### Args:

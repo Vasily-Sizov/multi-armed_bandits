@@ -1,6 +1,6 @@
 import math
 import random
-from algorithms.base_algo import BaseAlgo
+from simple_bandits.algorithms.base_algo import BaseAlgo
 
 
 class Softmax(BaseAlgo):
@@ -40,7 +40,7 @@ class Softmax(BaseAlgo):
         probs = [math.exp(v / self.temperature) / z for v in self.values]
         return Softmax.categorical_draw(probs)
 
-    def update(self, chosen_arm: int, reward: int):
+    def update(self, chosen_arm: int, reward: float):
         """## Обновление бандита
 
         ### Args:
