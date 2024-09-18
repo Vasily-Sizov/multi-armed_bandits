@@ -8,7 +8,7 @@ def test_algorithm(
         arms: Sequence[BaseArm],
         num_sims: int,
         horizon: int) -> tuple[list[int], list[int], list[int], list[float], list[float]]:
-    """## Тестовый фреймворк (модель среды)
+    """## _summary_
 
     ### Args:
         - `algo (BaseAlgo)`: Алгоритм бандита
@@ -17,7 +17,8 @@ def test_algorithm(
         - `horizon (int)`: Горизонт - количество игр бандитом
 
     ### Returns:
-        - `_type_`: _description_
+        - `tuple[list[int], list[int], list[int], list[float], list[float]]`: 
+        номер симуляции, номер итерации, выбранная рука, награда, кумулятивная награда
     """
 
     chosen_arms = [0 for i in range(num_sims * horizon)]

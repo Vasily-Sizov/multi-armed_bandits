@@ -12,3 +12,4 @@ from simple_bandits.algorithms import (
 
 from simple_bandits.arms import BaseArm, AdversarialArm, BernoulliArm, NormalArm
 from simple_bandits.testing_framework import test_algorithm
+from simple_bandits.test_algorithms import test_eg_standard, test_eg_annealing
