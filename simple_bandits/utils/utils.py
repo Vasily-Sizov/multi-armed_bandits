@@ -6,7 +6,7 @@ def ind_max(x: list) -> int:
     return x.index(m)
 
 
-def categorical_draw(probs):
+def categorical_draw(probs: list) -> int:
     z = random.random()
     cum_prob = 0.0
     for i in range(len(probs)):

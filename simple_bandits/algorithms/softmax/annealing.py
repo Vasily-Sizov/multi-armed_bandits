@@ -1,11 +1,18 @@
 import math
-import random
 from simple_bandits.algorithms.base_algo import BaseAlgo
 from simple_bandits.utils.utils import categorical_draw
 
 
 class AnnealingSoftmax(BaseAlgo):
-    def __init__(self, counts, values):
+    """## Softmax алгоритм с отжигом"""
+
+    def __init__(self, counts: list[int], values: list[float]):
+        """## Конструктор
+
+        ### Args:
+            - `counts (list[int])`: Вектор - сколько раз сыграли каждой из рук
+            - `values (list[float])`: Вектор с вознаграждениями
+        """
         self.counts = counts
         self.values = values
 
@@ -13,7 +20,7 @@ class AnnealingSoftmax(BaseAlgo):
         """## Инициализация
 
         ### Args:
-            - `n_arms (int)`: _description_
+            - `n_arms (int)`: Количество рук
         """
         self.counts = [0 for col in range(n_arms)]
         self.values = [0.0 for col in range(n_arms)]
@@ -22,7 +29,7 @@ class AnnealingSoftmax(BaseAlgo):
         """## Выбор руки
 
         ### Returns:
-            - `int`: _description_
+            - `int`: Возвращает руку
         """
         t = sum(self.counts) + 1
         temperature = 1 / math.log(t + 0.0000001)
@@ -35,8 +42,8 @@ class AnnealingSoftmax(BaseAlgo):
         """## Обновление бандита
 
         ### Args:
-            - `chosen_arm (int)`: _description_
-            - `reward (int)`: _description_
+            - `chosen_arm (int)`: Выбранная рука
+            - `reward (int)`: Награда
         """
         self.counts[chosen_arm] = self.counts[chosen_arm] + 1
         n = self.counts[chosen_arm]
